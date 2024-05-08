@@ -11,7 +11,7 @@ const Guide = () => {
           </h2>
           <p className="regular-16 text-gray-30 xl:max-w-[520px]">
             Only with the Folka Travel application you will no longer get lost
-            and get lost again, because we already support offline maps when
+            and get lost again, because we already support offline routes when
             there is no internet connection in the field. Invite your friends,
             relatives and friends to have fun in the wilderness through the
             valley and reach the top of the mountain
@@ -28,7 +28,7 @@ const Guide = () => {
           className="w-full object-cover object-center 2xl:rounded-5xl"
         />
 
-        <div className="absolute flex bg-white py-8 pl-5 pr-7 gap-3 rounded-3xl border shadow-md md:left-[5%] lg:top-20">
+        <div className="absolute flex gap-3 rounded-3xl border bg-white py-8 pl-5 pr-7 shadow-md md:left-[5%] lg:top-20">
           <Image
             src="/meter.svg"
             alt="meter"

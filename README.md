@@ -126,11 +126,11 @@ export const PEOPLE_URL = [
 // FEATURES SECTION
 export const FEATURES = [
   {
-    title: "Real maps can be offline",
+    title: "Routes can be offline",
     icon: "/map.svg",
     variant: "green",
     description:
-      "We provide a solution for you to be able to use our application when climbing, yes offline maps you can use at any time there is no signal at the location",
+      "We provide a solution for you to be able to use our application when climbing, yes offline routes you can use at any time there is no signal at the location",
   },
   {
     title: "Set an adventure schedule",
