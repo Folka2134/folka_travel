@@ -7,6 +7,7 @@ import {
   SignOutButton,
   SignedIn,
   SignedOut,
+  UserButton,
 } from "@clerk/nextjs";
 
 const Navbar = () => {
@@ -42,9 +43,7 @@ const Navbar = () => {
       </SignedOut>
       <SignedIn>
         <div className="lg:flexCenter hidden">
-          <button className="rounded-full">
-            <Link href="/sign-out">Logout</Link>
-          </button>
+          <UserButton afterSignOutUrl="/" />
         </div>
       </SignedIn>
 
