@@ -47,17 +47,20 @@ const Navbar = () => {
           </button>
         </div>
       </SignedOut>
-      {/* <SignedIn>
+      <SignedIn>
         <div className="lg:flexCenter hidden">
-          <SignOutButton />
+          {/* <SignOutButton />
           <Button
             type="button"
             title="Log out"
             icon="/user.svg"
             variant="btn_dark_green"
-          />
+          /> */}
+          <button className="rounded-full">
+            <Link href="/sign-out">Logout</Link>
+          </button>
         </div>
-      </SignedIn> */}
+      </SignedIn>
 
       <Image
         src="menu.svg"
