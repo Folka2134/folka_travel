@@ -35,13 +35,6 @@ const Navbar = () => {
       </ul>
       <SignedOut>
         <div className="lg:flexCenter hidden">
-          {/* <SignInButton /> */}
-          {/* <Button
-            type="button"
-            title="Login"
-            icon="/user.svg"
-            variant="btn_dark_green"
-          /> */}
           <button className="rounded-full">
             <Link href="/sign-in">Login</Link>
           </button>
@@ -49,13 +42,6 @@ const Navbar = () => {
       </SignedOut>
       <SignedIn>
         <div className="lg:flexCenter hidden">
-          {/* <SignOutButton />
-          <Button
-            type="button"
-            title="Log out"
-            icon="/user.svg"
-            variant="btn_dark_green"
-          /> */}
           <button className="rounded-full">
             <Link href="/sign-out">Logout</Link>
           </button>
