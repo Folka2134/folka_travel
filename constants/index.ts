@@ -1,10 +1,8 @@
 // NAVIGATION
 export const NAV_LINKS = [
-  { href: '/', key: 'home', label: 'Home' },
-  { href: '/', key: 'how_folka_travel_work', label: 'How Folka travel Work?' },
-  { href: '/', key: 'services', label: 'Services' },
-  { href: '/', key: 'pricing ', label: 'Pricing ' },
-  { href: '/', key: 'contact_us', label: 'Contact Us' },
+  { href: '/', key: 'world', label: '#World' },
+  { href: '/', key: 'locations', label: 'Locations' },
+  { href: '/', key: 'planner', label: 'Planner' },
 ];
 
 // CAMP SECTION
@@ -32,11 +30,11 @@ export const FEATURES = [
       "Schedule an adventure with friends. On holidays, there are many interesting offers from Folka travel. That way, there's no more discussion",
   },
   {
-    title: 'Technology using augment reality',
-    icon: '/tech.svg',
+    title: 'Pick your flights and hotels',
+    icon: '/airplane.svg',
     variant: 'green',
     description:
-      'Technology uses augmented reality as a guide to your hiking trail in the forest to the top of the mountain. Already supported by the latest technology without an internet connection',
+      'Plan your trip with Folka Travel, we provide a solution for you to be able to book flights and hotels at the same time',
   },
   {
     title: 'Many new locations every month',

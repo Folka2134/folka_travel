@@ -28,7 +28,7 @@ const Navbar = () => {
           <Link
             href={link.href}
             key={link.key}
-            className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"
+            className="regular-16 flexCenter cursor-pointer pb-1.5 text-gray-50 transition-all hover:font-bold"
           >
             {link.label}
           </Link>
@@ -36,9 +36,11 @@ const Navbar = () => {
       </ul>
       <SignedOut>
         <div className="lg:flexCenter hidden">
-          <button className="rounded-full">
-            <Link href="/sign-in">Login</Link>
-          </button>
+          <Link href="/sign-in">
+            <button className="rounded-full bg-black px-8 py-2 text-white transition-all hover:bg-[#01AA51] hover:font-bold active:scale-[0.95]">
+              Login
+            </button>
+          </Link>
         </div>
       </SignedOut>
       <SignedIn>
