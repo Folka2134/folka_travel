@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
+// "use server";
 
-import "./globals.css";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Folka Travel",
   description: "Traveling app",
 };
+export const revalidate = 0;
 
 export default function RootLayout({
   children,

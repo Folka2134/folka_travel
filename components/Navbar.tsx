@@ -2,6 +2,12 @@ import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import {
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -27,15 +33,31 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-
-      <div className="lg:flexCenter hidden">
-        <Button
-          type="button"
-          title="Login"
-          icon="/user.svg"
-          variant="btn_dark_green"
-        />
-      </div>
+      <SignedOut>
+        <div className="lg:flexCenter hidden">
+          {/* <SignInButton /> */}
+          {/* <Button
+            type="button"
+            title="Login"
+            icon="/user.svg"
+            variant="btn_dark_green"
+          /> */}
+          <button className="rounded-full">
+            <Link href="/sign-in">Login</Link>
+          </button>
+        </div>
+      </SignedOut>
+      {/* <SignedIn>
+        <div className="lg:flexCenter hidden">
+          <SignOutButton />
+          <Button
+            type="button"
+            title="Log out"
+            icon="/user.svg"
+            variant="btn_dark_green"
+          />
+        </div>
+      </SignedIn> */}
 
       <Image
         src="menu.svg"
