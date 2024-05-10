@@ -17,11 +17,11 @@
 4. 🤸 [Quick Start](#quick-start)
 5. 🔗 [Links](#links)
 
-## <a name="introduction">🤖 Depdencies</a>
+## <a name="introduction">🤖 Introduction</a>
 
-Built with Next.js, TailwindCSS, and TypeScript, this landing page not only looks great but also serves as a hands-on project to reinforce one's understanding of these technologies.
+A comprehensive travel companion, designed to streamline your global adventures. It includes an intuitive route planning feature, a comprehensive hotel finder, a robust flight manager, and the ability to save your favorite locations for future reference.
 
-If you're getting started and need assistance or face any bugs, join our active Discord community with over 27k+ members. It's a place where people help each other out.
+Additionally, it fosters a sense of community among users with a feature that allows you to share your trip photos. All these features are housed in a user-friendly interface, making your travel planning as seamless as possible.
 
 <a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
 
