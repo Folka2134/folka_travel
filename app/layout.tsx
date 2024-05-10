@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import MobileNavbar from "@/components/MobileNavbar";
 
 export const metadata: Metadata = {
   title: "Folka Travel",
@@ -21,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className="relative">
           <Navbar />
           <main className="relative overflow-hidden">{children}</main>
           <Footer />
