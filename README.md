@@ -27,6 +27,7 @@ Additionally, it fosters a sense of community among users with a feature that al
 
 - Next.js
 - Tailwind CSS
+- Shadcn
 - Mongodb
 - Clerk
 
