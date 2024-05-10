@@ -21,7 +21,7 @@ import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
   return (
-    <div className="sticky top-6 z-50 mx-4 my-6 flex items-center justify-between rounded-xl bg-white sm:mx-6 md:mx-12 lg:relative">
+    <div className="sticky top-6 z-50 mx-4 my-6 flex items-center justify-between rounded-xl bg-white sm:mx-6 md:mx-12 lg:relative xl:mx-64">
       <nav className="flex w-full items-center justify-between">
         <Link href="/">
           <Image

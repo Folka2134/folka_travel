@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="relative">
+        <body className="relative ">
           <Navbar />
           <main className="relative overflow-hidden">{children}</main>
           <Footer />

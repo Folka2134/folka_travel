@@ -4,5 +4,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="my-24 flex justify-center">{children}</div>;
+  return <div className="my-10 flex justify-center">{children}</div>;
 }
