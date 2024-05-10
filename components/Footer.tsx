@@ -14,7 +14,7 @@ const Footer = () => {
               alt="logo"
               width={150}
               height={29}
-              className="rounded-xl"
+              className="hidden rounded-xl md:block"
             />
           </Link>
 
