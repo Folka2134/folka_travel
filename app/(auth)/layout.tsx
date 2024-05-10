@@ -1,13 +1,8 @@
 // "use server";
-
-import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="flex justify-center my-24">{children}</div>;
+  return <div className="my-24 flex justify-center">{children}</div>;
 }
