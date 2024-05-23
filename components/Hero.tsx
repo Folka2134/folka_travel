@@ -4,7 +4,7 @@ import Button from "./Button";
 const Hero = () => {
   return (
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
-      <div className="hero-map" />
+      {/* <div className="hero-map" /> */}
 
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
         <Image
@@ -22,12 +22,11 @@ const Hero = () => {
         </p>
 
         <div className="mt-11 flex w-full flex-col gap-3 sm:flex-row">
-          <Button type="button" title="Download App" variant="btn_green" />
           <Button
             type="button"
             title="Plan your route!"
-            icon="/play.svg"
-            variant="btn_white_text"
+            icon="/map.svg"
+            variant="btn_green"
           />
         </div>
       </div>

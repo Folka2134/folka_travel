@@ -3,7 +3,6 @@ import { connectToDatabase } from "../database";
 import User from "../database/models/user.model";
 
 import { CreateUserParams, UpdateUserParams } from "@/types/types";
-import { handleError } from "../utils";
 import { revalidatePath } from "next/cache";
 
 export async function getUserById(userId: String) {
@@ -63,4 +62,8 @@ export async function deleteUser(clerkId: String) {
   } catch (error) {
     handleError(error)
   }
+}
+
+function handleError(error: unknown) {
+  throw new Error("Function not implemented.");
 }

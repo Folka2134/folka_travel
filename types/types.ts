@@ -15,3 +15,10 @@ export type UpdateUserParams = {
   username: string
   photo: string
 }
+
+// COUNTRIES
+
+export type CountriesParams = {
+  name: string;
+  code: string;
+}

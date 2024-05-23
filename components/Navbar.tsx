@@ -18,20 +18,25 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import MobileNavbar from "./MobileNavbar";
+import Searchbar from "./SearchBar";
 
 const Navbar = () => {
   return (
     <div className="sticky top-6 z-50 mx-4 my-6 flex items-center justify-between rounded-xl bg-white sm:mx-6 md:mx-12 lg:relative xl:mx-64">
       <nav className="flex w-full items-center justify-between">
-        <Link href="/">
-          <Image
-            className="rounded-xl"
-            src="/folka_travel-logo.png"
-            alt="logo"
-            width={200}
-            height={50}
-          />
-        </Link>
+        <div className="flex flex-col">
+          <Link href="/">
+            <Image
+              className="rounded-xl"
+              src="/folka_travel-logo.png"
+              alt="logo"
+              width={200}
+              height={50}
+            />
+          </Link>
+
+          <Searchbar />
+        </div>
 
         <ul className="hidden h-full gap-12 lg:flex">
           {NAV_LINKS.map((link) => (
