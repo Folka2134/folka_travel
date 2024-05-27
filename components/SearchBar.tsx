@@ -48,7 +48,7 @@ const Searchbar = () => {
   }, []);
 
   return (
-    <div className="max-container flex flex-col lg:py-5 xl:flex-row">
+    <div className="max-container flex flex-col py-5 xl:flex-row">
       <Button variant="outline" onClick={() => setOpen(true)}>
         Search locations...
       </Button>
