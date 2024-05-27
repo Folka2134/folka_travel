@@ -19,13 +19,16 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 
+import menu from "../public/menu.svg";
+
 const MobileNavbar = () => {
   return (
     <div className="lg:hidden">
       <Sheet>
         <SheetTrigger>
           <Image
-            src="menu.svg"
+            priority
+            src={menu}
             alt="menu"
             width={32}
             height={32}
