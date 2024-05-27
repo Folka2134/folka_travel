@@ -16,9 +16,18 @@ export type UpdateUserParams = {
   photo: string
 }
 
-// COUNTRIES
+// LOCATIONS
 
 export type CountriesParams = {
   name: string;
   code: string;
+}
+
+export type City = {
+  name: string
+  admin1: string
+  admin2: string
+  country: string
+  lat: string
+  lng: string
 }
