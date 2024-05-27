@@ -8,9 +8,16 @@ import { countries } from "@/constants/countries";
 const LocationPage = () => {
   const params = useParams<{ code: string }>();
 
-  const filteredCities = cities
-    .filter((city) => city.country === params.code)
+  const removedDuplicates = cities.filter(
+    (value: any, index: any, self: any) =>
+      self.map((item: any) => item.name).indexOf(value.name) === index,
+  );
+  const filteredCities = removedDuplicates
+    .filter((city: any) => city.country === params.code)
     .sort();
+
+  console.log(filteredCities);
+
   const country = countries.find((country) => country.code === params.code);
 
   return (
@@ -20,7 +27,7 @@ const LocationPage = () => {
       </h2>
 
       <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
-        {filteredCities.map((city) => (
+        {filteredCities.map((city: any) => (
           <div key={city.name}>
             <h3>{city.name}</h3>
           </div>
