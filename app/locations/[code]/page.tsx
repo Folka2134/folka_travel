@@ -4,11 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { cities } from "@/constants/cities";
 import { countries } from "@/constants/countries";
+import { City } from "@/types/types";
 
 const LocationPage = () => {
   const params = useParams<{ code: string }>();
   const [page, setPage] = useState(0);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<City[]>([]);
 
   const country = countries.find((country) => country.code === params.code);
 
