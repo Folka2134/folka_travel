@@ -32,7 +32,7 @@ const LocationPage = () => {
   const fetchData = () => {
     const { from, to } = getFromAndTo();
 
-    console.log(from, to);
+    console.log(page);
 
     // ALL DATA
     const removedDuplicates = cities.filter(
@@ -45,22 +45,17 @@ const LocationPage = () => {
       .sort()
       .slice(from, to);
 
+    setData((currentData) => [...currentData, ...filteredCities]);
     setPage(page + 1);
-
-    // console.log(removedDuplicates);
-
-    setData(filteredCities);
   };
 
-  console.log(data);
-
   return (
-    <div className="max-container flex flex-col gap-12 py-10 pb-32  lg:py-20 ">
+    <div className="flex flex-col items-center gap-12 px-10  py-10  lg:px-20 lg:py-20">
       <h2 className="text-xl">
         {country?.name}: {params.code}
       </h2>
 
-      <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-10 text-center sm:grid-cols-5 lg:w-[1000px]">
         {data?.map((city: any) => (
           <div key={city.name}>
             <h3>{city.name}</h3>
@@ -69,7 +64,7 @@ const LocationPage = () => {
       </div>
 
       <button
-        className="btn btn-primary"
+        className="btn btn-primary mt-3"
         onClick={() => {
           fetchData();
         }}
