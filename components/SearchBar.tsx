@@ -20,7 +20,6 @@ import { useCallback, useEffect, useState } from "react";
 const Searchbar = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  // const { setTheme } = useTheme();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -71,7 +70,7 @@ const Searchbar = () => {
                 }}
               >
                 <a href={`/locations/${country.code}`}>
-                  <div className="rounded-lg py-2 pl-5 text-sm">
+                  <div className="rounded-lg py-1 pl-5 text-sm">
                     {country.name}
                   </div>
                 </a>
