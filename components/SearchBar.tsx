@@ -1,71 +1,86 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./ui/dialog";
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "@/components/ui/command";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { ScrollArea } from "./ui/scroll-area";
 import { countries } from "@/constants/countries";
-import { Separator } from "./ui/separator";
 import { CountriesParams } from "@/types/types";
-import Link from "next/link";
-import router from "next/router";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
 
 const Searchbar = () => {
-  const [search, setSearch] = useState("");
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
+  // const { setTheme } = useTheme();
 
-  const handleSearch = (value: string) => {
-    setSearch(value);
-  };
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
+        if (
+          (e.target instanceof HTMLElement && e.target.isContentEditable) ||
+          e.target instanceof HTMLInputElement ||
+          e.target instanceof HTMLTextAreaElement ||
+          e.target instanceof HTMLSelectElement
+        ) {
+          return;
+        }
 
-  const filteredCountries = countries.filter((country) => {
-    return country.name.toLowerCase().includes(search.toLowerCase());
-  });
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
+
+  const runCommand = useCallback((command: () => unknown) => {
+    setOpen(false);
+    command();
+  }, []);
 
   return (
     <div className="max-container flex flex-col lg:py-5 xl:flex-row">
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">Search locations...</Button>
-        </DialogTrigger>
-        <DialogContent className="p-0 sm:max-w-[425px]">
-          <DialogHeader className="">
-            <Input
-              id="location"
-              defaultValue={search}
-              className="col-span-3 h-12 border-0 "
-              placeholder="Search locations..."
-              onChange={(e) => handleSearch(e.target.value)}
-            />
-          </DialogHeader>
-          <div className="grid">
-            <ScrollArea className="h-72 w-full rounded-md">
-              <div className="px-2">
-                {filteredCountries.map((country: CountriesParams) => (
-                  <div
-                    onClick={() => {
-                      window.location.href = `/locations/${country.code}`;
-                    }}
-                    key={country.code}
-                  >
-                    <div className="rounded-lg py-2 pl-5 text-sm hover:bg-gray-20">
-                      {country.name}
-                    </div>
+      <Button variant="outline" onClick={() => setOpen(true)}>
+        Search locations...
+      </Button>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Search locations..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup>
+            {countries.map((country: CountriesParams) => (
+              <CommandItem
+                key={country.code}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    window.location.href = `/locations/${country.code}`;
+                  }
+                }}
+                onSelect={() => {
+                  runCommand(() => router.push(`/locations/${country.code}`));
+                }}
+              >
+                <a href={`/locations/${country.code}`}>
+                  <div className="rounded-lg py-2 pl-5 text-sm">
+                    {country.name}
                   </div>
-                ))}
-              </div>
-            </ScrollArea>
-          </div>
-        </DialogContent>
-      </Dialog>
+                </a>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandSeparator />
+        </CommandList>
+      </CommandDialog>
     </div>
   );
 };
