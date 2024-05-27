@@ -5,11 +5,27 @@ import { useParams } from "next/navigation";
 import { cities } from "@/constants/cities";
 import { countries } from "@/constants/countries";
 import { City } from "@/types/types";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
 
 const LocationPage = () => {
   const params = useParams<{ code: string }>();
   const [page, setPage] = useState(0);
   const [data, setData] = useState<City[]>([]);
+  const [dateFrom, setDateFrom] = React.useState<Date | undefined>();
+  const [dateTo, setDateTo] = React.useState<Date | undefined>();
 
   const country = countries.find((country) => country.code === params.code);
 
@@ -40,12 +56,14 @@ const LocationPage = () => {
         self.map((item: any) => item.name).indexOf(value.name) === index,
     );
 
+    // console.log(removedDuplicates);
+
     const filteredCities = removedDuplicates
       .filter((city: any) => city.country === params.code)
       .sort()
       .slice(from, to);
 
-    setData((currentData) => [...currentData, ...filteredCities]);
+    setData([...data, ...filteredCities]);
     setPage(page + 1);
   };
 
@@ -57,9 +75,55 @@ const LocationPage = () => {
 
       <div className="grid grid-cols-2 gap-10 text-center sm:grid-cols-5 lg:w-[1000px]">
         {data?.map((city: any) => (
-          <div key={city.name}>
-            <h3>{city.name}</h3>
-          </div>
+          // Replace with component after setting up Context API
+          <Dialog key={city.name}>
+            <DialogTrigger>{city.name}</DialogTrigger>
+            <DialogContent className="w-72">
+              <DialogHeader>
+                <DialogTitle>Travel to {city.name}</DialogTitle>
+              </DialogHeader>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button className="btn btn-primary">
+                    From:{" "}
+                    {dateFrom ? (
+                      <span>{format(dateFrom, "PPP")}</span>
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={dateFrom}
+                    onSelect={setDateFrom}
+                    className="rounded-md border"
+                  />
+                </PopoverContent>
+              </Popover>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button className="btn btn-primary">
+                    To:{" "}
+                    {dateTo ? (
+                      <span>{format(dateTo, "PPP")}</span>
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={dateTo}
+                    onSelect={setDateTo}
+                    className="rounded-md border"
+                  />
+                </PopoverContent>
+              </Popover>
+            </DialogContent>
+          </Dialog>
         ))}
       </div>
 
