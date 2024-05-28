@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import underConstruction from "../../public/under_construction.jpg";
+import underConstruction from "@/public/under_construction.jpg";
 
 const WorldPage = () => {
   return (

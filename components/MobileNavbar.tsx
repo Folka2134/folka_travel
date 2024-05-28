@@ -19,7 +19,7 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 
-import menu from "../public/menu.svg";
+import menu from "@/public/menu.svg";
 
 const MobileNavbar = () => {
   return (
