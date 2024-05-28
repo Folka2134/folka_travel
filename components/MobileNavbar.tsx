@@ -27,7 +27,6 @@ const MobileNavbar = () => {
       <Sheet>
         <SheetTrigger>
           <Image
-            priority
             src={menu}
             alt="menu"
             width={32}
