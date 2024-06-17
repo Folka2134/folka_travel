@@ -12,8 +12,6 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { Button } from "./ui/button";
-import { countries } from "@/constants/countries";
-import { CountriesParams } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
@@ -56,27 +54,7 @@ const Searchbar = () => {
         <CommandInput placeholder="Search locations..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup>
-            {countries.map((country: CountriesParams) => (
-              <CommandItem
-                key={country.code}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    window.location.href = `/locations/${country.code}`;
-                  }
-                }}
-                onSelect={() => {
-                  runCommand(() => router.push(`/locations/${country.code}`));
-                }}
-              >
-                <a href={`/locations/${country.code}`}>
-                  <div className="rounded-lg py-1 pl-5 text-sm">
-                    {country.name}
-                  </div>
-                </a>
-              </CommandItem>
-            ))}
-          </CommandGroup>
+          <CommandGroup></CommandGroup>
           <CommandSeparator />
         </CommandList>
       </CommandDialog>
