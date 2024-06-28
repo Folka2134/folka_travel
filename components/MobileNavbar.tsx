@@ -40,10 +40,9 @@ const MobileNavbar = () => {
               <SheetDescription className="mt-16 flex h-full flex-col gap-12">
                 <ul className="flex flex-col">
                   {NAV_LINKS.map((link) => (
-                    <SheetClose asChild>
+                    <SheetClose asChild key={link.key}>
                       <Link
                         href={link.href}
-                        key={link.key}
                         className="regular-24 flexCenter cursor-pointer py-6 text-gray-50 transition-all hover:font-bold"
                       >
                         {link.label}
