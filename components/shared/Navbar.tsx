@@ -1,24 +1,9 @@
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../Button";
-import {
-  SignInButton,
-  SignOutButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+
 import MobileNavbar from "../MobileNavbar";
-import Searchbar from "../SearchBar";
 
 const Navbar = () => {
   return (
@@ -34,8 +19,6 @@ const Navbar = () => {
               height={50}
             />
           </Link>
-
-          <Searchbar />
         </div>
 
         <ul className="hidden h-full gap-12 lg:flex">
