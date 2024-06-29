@@ -1,7 +1,7 @@
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./Button";
+import Button from "../Button";
 import {
   SignInButton,
   SignOutButton,
@@ -16,9 +16,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "./ui/sheet";
-import MobileNavbar from "./MobileNavbar";
-import Searchbar from "./SearchBar";
+} from "../ui/sheet";
+import MobileNavbar from "../MobileNavbar";
+import Searchbar from "../SearchBar";
 
 const Navbar = () => {
   return (
